@@ -15,8 +15,8 @@ DOMAIN_NAME="DOMAIN.com"
 # OPTIONAL: Add multiple domains
 # Add multiple -d switches to the "acme.sh --issue" command
 # EX: /path/to/.acme.sh/acme.sh --issue -d  *.$DOMAIN_NAME -d $DOMAIN_NAME -d *.$DOMAIN_NAME_2 -d $DOMAIN_NAME_2 ...etc
-#DOMAIN_NAME2="DOMAIN.net"
-#DOMAIN_NAME3="DOMAIN.org"
+#DOMAIN_NAME_2="DOMAIN.net"
+#DOMAIN_NAME_3="DOMAIN.org"
 
 # Change this to your provider (default Cloudflare)
 DNS_PROVIDER="dns_cf"
@@ -30,7 +30,7 @@ $ACME_PATH/acme.sh --issue -d *.$DOMAIN_NAME -d $DOMAIN_NAME --dns $DNS_PROVIDER
 
 # This automatically drops all certs and keys in $HOME/.ssl. You can change it via the SSL_PATH variable above.
 # The -d switch in this case refers to the "main" domain that gets registered (the first -d switch in the issue command above) which becomes the folder
-# where acme.sh default stores all of the files.
+# where acme.sh default stores all of the files. MAKE SURE the -d switch references the FIRST domain in the above --issue command.
 $ACME_PATH/acme.sh --install-cert -d *.$DOMAIN_NAME --ecc \
         --cert-file $SSL_PATH/wildcard.cer \
         --key-file $SSL_PATH/wildcard.key \
